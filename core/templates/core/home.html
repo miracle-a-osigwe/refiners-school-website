@@ -1,0 +1,121 @@
+{% extends "main_base.html" %}
+{% load i18n static %}
+{% block title %}
+    Homepage
+{% endblock title %}
+
+{% block header %}
+    {{ block.super }}
+    <script src=" {% static "core/js/content.js" %}"></script>
+{% endblock header %}
+
+<!-- Login and admin page should not be accessible from the main website interface -->
+
+{% block usertools %}
+    {% block home_tag %}
+        <div class="home_tag">
+            <a href="{% url 'core:home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+        </div>
+    {% endblock home_tag %}
+    {% block aboutus_tag %}
+        <div class="about_us_tag">
+            <a href="{% url 'core:about' %}">About Us</a>
+        </div>
+    {% endblock aboutus_tag %}
+    {% block admission_tag %}
+        <div class="admission_tag">
+            <a href="{% url 'core:admission' %}">Admission</a>
+        </div>
+    {% endblock admission_tag %}
+    {% block academic_tag %}
+        <div class="academic_tag">
+            <a href="{% url 'core:academics' %}">Academics</a>
+        </div>
+    {% endblock academic_tag %}
+    {% block facility_tag %}
+        <div class="facility_tag">
+            <a href="{% url 'core:gallery' %}">Gallery</a>
+        </div>
+    {% endblock facility_tag %}
+
+    {% block breadcrumbs %}{% endblock %}
+
+{% endblock usertools %}
+{% block messages %}{% endblock messages %}
+
+
+
+{% block content %}
+{% block message %}
+    {% if message %}
+        <h2 id="message-id">
+            {{ message }}
+        </h2>
+        
+    {% endif %}
+{% endblock message %}
+    <div id="gallery-container">
+        <div class="content-slider">
+            <div class="content2">
+                <div class="image-section">
+                    <img src="{% static 'core/images/kids.jpg' %}" alt="Image 1" class="img-class">
+                </div>
+                <div class="text-section">
+                    <h2>Refiners Schools</h2>
+                    <p>
+                        At Refiners School your child is our priority. Hence, we ensure the all-round development of your child in an enabling 
+                        environment for learning, where they are guided and motivated to achieve their dreams. We are dedicated to raising a 
+                        generation of leaders in the society with impeccable academic and moral standards. 
+                        We are raising a generation of children who can adapt to the challenges of the diverse and global society. 
+                    </p>
+                    <span>
+                        <i aria-hidden="true" class="fas fa-minus"></i>
+                        <a href="{% url 'core:about' %}" id="read-more"> READ MORE</a>
+                    </span>
+                </div>
+            </div>
+            <div class="content2">
+                <div class="image-section">
+                    <img src="{% static 'core/images/img/1.jpg' %}" alt="Image 2" class="img-class">
+                </div>
+                <div class="text-section">
+                    <h3>School Vision</h3>
+                    <p id="vision-mission">
+                        Our vision is to perfect the will of God in young stars by refining, nurturing, 
+                        and moulding them for eminence and excellence in purity with the fear of God, as well as offering a robust, 
+                        and moral education acceptable nationally and globally to the benefit of the society and mankind.
+                    </p>
+                    <h3>School Mission</h3>
+                    <p id="vision-mission">
+                        Our Mission is to nurture and foster with high moral values, discipline, 
+                        and sound mind for learning in a conducive and enabling environment through creative and challenging learning experiences.
+                    </p>
+                    <span>
+                        <i aria-hidden="true" class="fas fa-minus"></i>
+                        <a href="{% url 'core:mission_vision' %}" id="read-more"> READ MORE</a>
+                    </span>
+                </div>
+            </div>
+            <!-- Add more content sections as needed -->
+            <div class="content2">
+                <div class="image-section">
+                    <img src="{% static 'core/images/img/3.jpg' %}" alt="Image 3" class="img-class">
+                </div>
+                <div class="text-section">
+                    <p>This is the text for Image 3.</p>
+                </div>
+            </div>
+            <div class="content2">
+                <div class="image-section">
+                    <img src="{% static 'core/images/img/2.jpg' %}" alt="Image 4" class="img-class">
+                </div>
+                <div class="text-section">
+                    <p>This is the text for Image 4.</p>
+                </div>
+            </div>
+            <!-- </div> -->
+        
+        </div>
+      </div>
+      {{ block.super }}
+{% endblock content %}

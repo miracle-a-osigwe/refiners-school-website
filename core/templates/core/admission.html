@@ -1,0 +1,66 @@
+{% extends "core/home.html" %}
+{% block title %}
+    Admission
+{% endblock title %}
+
+{% block home_tag %}
+    <a href="{% url 'core:home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+{% endblock home_tag %}
+
+{% block admission_tag %}
+{% endblock %}
+
+{% block content %}
+<div id="admission">
+    <form action="{% url 'core:admission' %}" method="post" id="form-adm">
+        {% csrf_token %}
+        <table id="table-adm">
+            <tr>
+                <th colspan="5" class="th-adm"><h3>CANDIDATE INFORMATION</h3></th>
+            </tr>
+            {% for form in form1 %}
+                <tr>
+                    <th class="th-adm">{{ form.label }} </th> 
+                    {% if 'Residential' in form.label %}
+                        <td><textarea name="input" id="" cols="30" rows="5"></textarea></td>
+                    {% else %}
+                        <td class="td-adm"> {{ form }} </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3"><hr></td>
+            </tr>
+        </table>
+        <table id="table-adm2">
+            <tr>
+                <th colspan="3" class="th-adm"><h3>PARENT/GUARDIAN INFORMATION</h3></th>
+            </tr>
+            {% for form in form3 %}
+                <tr>
+                    <th class="th-adm">{{ form.label }} </th>
+                    {% if 'Home Address' in form.label or 'Office Address' in form.label %}
+                        <td><textarea name="input" id="" cols="30" rows="5"></textarea></td>
+                    {% else %}
+                        <td class="td-adm"> {{ form }} </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+        <table id="table-adm1">
+            <tr>
+                <th colspan="3" class="th-adm"><h3>CANDIDATE EDUCATION INFORMATION</h3></th>
+            </tr>
+            {% for form in form2 %}
+                <tr>
+                    <th class="th-adm">{{ form.label }} </th> 
+                    <td class="td-adm"> {{ form }} </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <!-- Submit Button -->
+        <div><button type="submit" class="submit-button2">Submit</button></div>
+    </form>
+</div>
+{% endblock %}

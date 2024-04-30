@@ -1,0 +1,75 @@
+{% extends 'core/home.html' %}
+{% load static %}
+
+{% block title %}
+    Gallery
+{% endblock title %}
+
+{% block header %}
+    {{ block.super }}
+        <script src=" {% static "core/js/content.js" %}"></script>
+    {% endblock header %}
+
+{% block home_tag %}
+    <a href="{% url 'core:home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+{% endblock home_tag %}
+
+{% block facility_tag %}
+{% endblock %}
+
+{% block content %}
+<div id="gallery-view">
+    <div id="side-links">
+        <button class="side-links-btn">Overview</button>
+        <button class="side-links-btn">Reception</button>
+        <button class="side-links-btn">Nursery/Primary School Building</button> 
+        <button class="side-links-btn">Secondary School Building</button>
+        <button class="side-links-btn">Classes Overview</button>
+        <button class="side-links-btn">Labs</button>
+        <button class="side-links-btn">Workshops</button>
+        <button class="side-links-btn">Sporting Facilities</button>
+    </div>
+    <div id="gallery">
+        <div class="gallery-slides">
+            <div class="gallery-content">
+                <div class="gallery-image">        
+                    <img src="{% static 'core/images/img/11.jpg' %}" alt="Image 2" class="img-gallery">
+                </div>
+                <div class="gallery-text">
+                    <p>This is the text for Image 1.</p>
+                </div>
+            </div>
+            <div class="gallery-content">
+                <div class="gallery-image">        
+                    <img src="{% static 'core/images/img/12.jpg' %}" alt="Image 2" class="img-gallery">
+                </div>
+                <div class="gallery-text">
+                    <p>This is the text for Image 2.</p>
+                </div>
+            </div>
+            <div class="gallery-content">
+                <div class="gallery-image">        
+                    <img src="{% static 'core/images/img/13.jpg' %}" alt="Image 2" class="img-gallery">
+                </div>
+                <div class="gallery-text">
+                    <p>This is the text for Image 3.</p>
+                </div>
+            </div>
+        </div>
+                <!-- <div class="gallery-swipe">
+                    <div class="gal-swipe">
+                        <img src="{% static 'core/images/img/11.jpg' %}" alt="Image 2" class="img-gallery">
+                    </div>
+                    <div class="gal-swipe">
+                        <img src="{% static 'core/images/img/12.jpg' %}" alt="Image 2" class="img-gallery">
+                    </div>
+                    <div class="gal-swipe">
+                        <img src="{% static 'core/images/img/13.jpg' %}" alt="Image 2" class="img-gallery">
+                    </div> 
+                </div> -->
+            
+    </div>
+</div>
+
+
+{% endblock content %}

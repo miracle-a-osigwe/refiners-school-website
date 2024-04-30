@@ -1,0 +1,19 @@
+{% extends 'core/home.html' %}
+{% block title %}
+    News
+{% endblock title %}
+
+{% block content_title %}
+LATEST NEWS
+{% endblock content_title %}
+
+{% block content %}
+    <div class="news-tag">This is where latest news will be displayed</div>
+{% endblock content %}
+
+{% block home_tag %}
+    <a href="{% url 'core:home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+{% endblock home_tag %}
+
+<!-- {% block news_event_tag %}
+{% endblock %} -->
