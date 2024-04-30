@@ -1,0 +1,34 @@
+{% extends "core/home.html" %}
+{% block title %}
+    About us
+{% endblock title %}
+
+{% block home_tag %}
+    <a href="{% url 'core:home' %}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+{% endblock home_tag %}
+{% block aboutus_tag %}
+{% endblock aboutus_tag %}
+
+{% block content %}
+    <div class="about">
+        <h2>About Refiners Schools</h2>
+
+        <span>
+            <p>
+                The name <strong>REFINERS</strong> was couched from Malachi 3:3. 
+                Established in 2012, on a strong Christian foundation, 
+                we inculcate sound Christian values of Faith, Love, 
+                Compassion and Respect. However, we embrace diversity in religion and 
+                culture, therefore children from different religious and cultural backgrounds are welcomed, respected, and supported. 
+            
+            <br/>
+
+                At REFINERS, we believe every child is different and we are all unique in our ways and approach. 
+                Hence, we adopt a Child-centred” process in our academic, emotional and physical engagement. 
+                As our motto states “Perfecting God's Will”, we ensure every child is particularly '<strong>refined</strong>' that he or 
+                    she should become perfectly and thoroughly furnished, prepared for every <strong>good work</strong> in the immediate 
+                    community locally and globally.
+            </p>
+        </span>
+    </div>
+{% endblock %}
