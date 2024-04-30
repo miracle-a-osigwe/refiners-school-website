@@ -1,0 +1,96 @@
+{% extends 'mcq/home.html' %}
+{% load form_fieldset %}
+
+{% block title_name %}
+      RHS - Assessment Page
+{% endblock title_name %}
+
+{% block content %}
+      {% if user.is_authenticated %}
+            <div>
+                  <h1> Welcome {{ user.firstName }}</h1><br>
+            </div>
+            <div>
+                  <table id="assessment-table" style="width : 100%; text-align: left;" align="justify">
+                        <tbody>
+                              <tr>
+                                    <th>Session</th>
+                                    <th>Assessment</th>
+                                    <th>Subject</th>
+                                    <th>Class</th>
+                                    <th>Teacher</th>
+                              </tr>
+                              <tr>
+                                    <td>{{ assessment.name }}</td>
+                                    <td>{{ assessment.title }}</td>
+                                    <td>{{ assessment.subject }}</td>
+                                    <td>{{ assessment.class_owner }}</td>
+                                    <td>{{ assessment.author }}</td>
+                              </tr>
+                        </tbody>
+                  </table>
+            </div>
+            <br>
+            <hr>
+            <div>
+                  {% if user.role == 1 %}
+                        <p>Hi</p>
+                  {% elif user.role == 2 and assessment.author_id == user.id %}
+                        
+                        <div class="card">
+                              <table id="question-table" style="width : 100%; text-align: left;"></table>
+                              
+                                    <tr>
+                                          <th>S/N</th>
+                                          <th>Questions</th>
+                                          <th>Option A</th>
+                                          <th>Option B</th>
+                                          <th>Option C</th>
+                                          <th>Option D</th>
+                                          <th>Answer</th>
+                                    </tr>
+                              </table>
+                                    
+                                    
+                                    {% for q in question %}
+                                          {% if q.assessment_id == assessment.id %}
+                                                <tr>
+                                                      <td>{{ forloop.counter }}</td>
+                                                      <td>{{ q.question }}</td>
+                                                      {% locate option forloop.counter0 as value %}{% for op in value %}<td>{{ op }}</td>{% endfor %}
+                                                      {% locate answer forloop.counter0 as correct %}<td> {% for ans in correct %} {{ ans }} {% endfor %} </td>
+                                                </tr>
+                                                      
+                                          
+                                                <hr>
+                                          {% else %}
+                                                {{ question }}
+                                          {% endif %}                                          
+                                    {% endfor %}
+                                    
+                              </table>
+                        </div>
+
+                        {% if question %}
+                              <div class="card">
+                                    <a href="{% url 'mcq:question' %}" class="question-create">
+                                          <legend>Add Question</legend>
+                                    </a>
+                              </div>
+                        {% else %}
+                              <div class="card">
+                                    <a href="{% url 'mcq:question' %}" class="question-create">
+                                          <legend>Create Question</legend>
+                                    </a>
+                              </div>
+                        {% endif %}
+                  {% elif user.role == 3 %}
+                        {{ question }}
+                  {% endif %}
+            </div>
+      {% endif %}
+{% endblock content %}
+
+{% block branding %}
+        
+{% endblock branding %}

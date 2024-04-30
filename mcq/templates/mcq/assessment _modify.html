@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://127.0.0.1:8008/admin/mcq/assessment/add/ -->
+<html lang="en-us" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Add assessment | Django site admin</title>
+    <link rel="stylesheet" href="./assessment _modify_files/base.css">
+
+    <link rel="stylesheet" href="./assessment _modify_files/dark_mode.css">
+
+
+    <link rel="stylesheet" href="./assessment _modify_files/nav_sidebar.css">
+    <script src="./assessment _modify_files/nav_sidebar.js.download" defer=""></script>
+
+<link rel="stylesheet" href="./assessment _modify_files/forms.css">
+
+
+<script src="./assessment _modify_files/saved_resource"></script>
+<script src="./assessment _modify_files/jquery.js.download"></script>
+<script src="./assessment _modify_files/jquery.init.js.download"></script>
+<script src="./assessment _modify_files/core.js.download"></script>
+<script src="./assessment _modify_files/inlines.js.download"></script>
+<script src="./assessment _modify_files/RelatedObjectLookups.js.download"></script>
+<script src="./assessment _modify_files/actions.js.download"></script>
+<script src="./assessment _modify_files/urlify.js.download"></script>
+<script src="./assessment _modify_files/prepopulate.js.download"></script>
+<script src="./assessment _modify_files/xregexp.js.download"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="./assessment _modify_files/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+
+</head>
+
+<body class=" app-mcq model-assessment change-form" data-admin-utc-offset="0" data-new-gr-c-s-check-loaded="14.1094.0" data-gr-ext-installed="">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    
+    <div id="header">
+        <div id="branding">
+            
+<h1 id="site-name"><a href="http://127.0.0.1:8008/admin/">Refiners High School Admin Page</a></h1>
+
+        </div>
+        
+            
+            <div id="user-tools">
+                
+                    Welcome,
+                    <strong>osigwe</strong>.
+                
+                
+                    
+                        <a href="http://127.0.0.1:8008/">View site</a> /
+                    
+                    
+                        
+                        
+                    
+                    
+                        <a href="http://127.0.0.1:8008/admin/password_change/">Change password</a> /
+                    
+                    <form id="logout-form" method="post" action="http://127.0.0.1:8008/admin/logout/">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="aN5myh2QXWgKDJBXYNtHHpP5pe75oeVTmSqMpdzNfo9ODOyUYCqW3cbU2yutlq6B">
+                        <button type="submit">Log out</button>
+                    </form>
+                
+                
+            </div>
+            
+        
+          
+      
+        
+        
+<div class="breadcrumbs">
+<a href="http://127.0.0.1:8008/admin/">Home</a>
+› <a href="http://127.0.0.1:8008/admin/mcq/">Mcq</a>
+› <a href="http://127.0.0.1:8008/admin/mcq/assessment/">Assessments</a>
+› Add assessment
+</div>
+
+      </div>
+    
+    <!-- END Header -->
+    
+    
+
+    <div class="main shifted" id="main">
+      
+        
+          
+<button class="sticky toggle-nav-sidebar" id="toggle-nav-sidebar" aria-label="Toggle navigation"></button>
+<nav class="sticky" id="nav-sidebar">
+  <input type="search" id="nav-filter" placeholder="Start typing to filter…" aria-label="Filter navigation items">
+  
+
+
+  
+    <div class="app-accounts module">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8008/admin/accounts/" class="section" title="Models in the Accounts application">Accounts</a>
+        </caption>
+        
+          <tbody><tr class="model-user">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/accounts/user/">Users</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/accounts/user/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+    <div class="app-auth module">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8008/admin/auth/" class="section" title="Models in the Authentication and Authorization application">Authentication and Authorization</a>
+        </caption>
+        
+          <tbody><tr class="model-group">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/auth/group/">Groups</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/auth/group/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+    <div class="app-core module">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8008/admin/core/" class="section" title="Models in the Core application">Core</a>
+        </caption>
+        
+          <tbody><tr class="model-class">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/core/class/">Classes</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/core/class/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+          <tr class="model-section">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/core/section/">Sections</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/core/section/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+          <tr class="model-student">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/core/student/">Students</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/core/student/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+          <tr class="model-subject">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/core/subject/">Subjects</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/core/subject/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+          <tr class="model-teacher">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/core/teacher/">Teachers</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/core/teacher/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+    <div class="app-mcq module current-app">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8008/admin/mcq/" class="section" title="Models in the Mcq application">Mcq</a>
+        </caption>
+        
+          <tbody><tr class="model-assessment current-model">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/mcq/assessment/" aria-current="page">Assessments</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/mcq/assessment/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+    <div class="app-sites module">
+      <table>
+        <caption>
+          <a href="http://127.0.0.1:8008/admin/sites/" class="section" title="Models in the Sites application">Sites</a>
+        </caption>
+        
+          <tbody><tr class="model-site">
+            
+              <th scope="row"><a href="http://127.0.0.1:8008/admin/sites/site/">Sites</a></th>
+            
+
+            
+              <td><a href="http://127.0.0.1:8008/admin/sites/site/add/" class="addlink">Add</a></td>
+            
+
+            
+          </tr>
+        
+      </tbody></table>
+    </div>
+  
+
+
+</nav>
+
+        
+      
+      <div class="content">
+        
+          
+        
+        <!-- Content -->
+        <div id="content" class="colM">
+          
+          <h1>Add assessment</h1>
+          
+          <div id="content-main">
+
+
+
+<form enctype="multipart/form-data" method="post" id="assessment_form" novalidate=""><input type="hidden" name="csrfmiddlewaretoken" value="aN5myh2QXWgKDJBXYNtHHpP5pe75oeVTmSqMpdzNfo9ODOyUYCqW3cbU2yutlq6B">
+<div>
+
+
+
+
+
+
+
+  <fieldset class="module aligned ">
+    
+    
+    
+        <div class="form-row field-name">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_name">Academic Session:</label>
+                        
+                            <input type="text" name="name" class="vTextField" maxlength="30" required="" id="id_name">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-title">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_title">Assessment type:</label>
+                        
+                            <input type="text" name="title" class="vTextField" maxlength="30" required="" id="id_title">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-author">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_author">Author:</label>
+                        
+                            <div class="related-widget-wrapper" data-model-ref="teacher">
+    <select name="author" required="" id="id_author">
+  <option value="" selected="">---------</option>
+
+  <option value="2">teach</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link change-related" id="change_id_author" data-href-template="/admin/core/teacher/__fk__/change/?_to_field=id&amp;_popup=1" data-popup="yes" title="Change selected teacher"><img src="./assessment _modify_files/icon-changelink.svg" alt="Change"></a><a class="related-widget-wrapper-link add-related" id="add_id_author" data-popup="yes" href="http://127.0.0.1:8008/admin/core/teacher/add/?_to_field=id&amp;_popup=1" title="Add another teacher"><img src="./assessment _modify_files/icon-addlink.svg" alt="Add"></a><a class="related-widget-wrapper-link view-related" id="view_id_author" data-href-template="/admin/core/teacher/__fk__/change/?_to_field=id" title="View selected teacher"><img src="./assessment _modify_files/icon-viewlink.svg" alt="View"></a>
+    
+</div>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-subject">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_subject">Subject:</label>
+                        
+                            <div class="related-widget-wrapper" data-model-ref="subject">
+    <select name="subject" required="" id="id_subject">
+  <option value="" selected="">---------</option>
+
+  <option value="1">English Language (Senior)</option>
+
+  <option value="2">English Language (Senior)</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link change-related" id="change_id_subject" data-href-template="/admin/core/subject/__fk__/change/?_to_field=id&amp;_popup=1" data-popup="yes" title="Change selected subject"><img src="./assessment _modify_files/icon-changelink.svg" alt="Change"></a><a class="related-widget-wrapper-link add-related" id="add_id_subject" data-popup="yes" href="http://127.0.0.1:8008/admin/core/subject/add/?_to_field=id&amp;_popup=1" title="Add another subject"><img src="./assessment _modify_files/icon-addlink.svg" alt="Add"></a><a class="related-widget-wrapper-link view-related" id="view_id_subject" data-href-template="/admin/core/subject/__fk__/change/?_to_field=id" title="View selected subject"><img src="./assessment _modify_files/icon-viewlink.svg" alt="View"></a>
+    
+</div>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-class_owner">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_class_owner">Class owner:</label>
+                        
+                            <div class="related-widget-wrapper" data-model-ref="class">
+    <select name="class_owner" required="" id="id_class_owner">
+  <option value="" selected="">---------</option>
+
+  <option value="1">Year 7 Ruby</option>
+
+</select>
+    
+        <a class="related-widget-wrapper-link change-related" id="change_id_class_owner" data-href-template="/admin/core/class/__fk__/change/?_to_field=id&amp;_popup=1" data-popup="yes" title="Change selected class"><img src="./assessment _modify_files/icon-changelink.svg" alt="Change"></a><a class="related-widget-wrapper-link add-related" id="add_id_class_owner" data-popup="yes" href="http://127.0.0.1:8008/admin/core/class/add/?_to_field=id&amp;_popup=1" title="Add another class"><img src="./assessment _modify_files/icon-addlink.svg" alt="Add"></a><a class="related-widget-wrapper-link view-related" id="view_id_class_owner" data-href-template="/admin/core/class/__fk__/change/?_to_field=id" title="View selected class"><img src="./assessment _modify_files/icon-viewlink.svg" alt="View"></a>
+    
+</div>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+
+
+
+
+
+
+
+    
+<div class="js-inline-admin-formset inline-group" id="question_set-group" data-inline-type="stacked" data-inline-formset="{&quot;name&quot;: &quot;#question_set&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;question_set&quot;, &quot;addText&quot;: &quot;Add another Question&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+<fieldset class="module ">
+  
+    <h2>Questions</h2>
+  
+<input type="hidden" name="question_set-TOTAL_FORMS" value="1" id="id_question_set-TOTAL_FORMS" autocomplete="off"><input type="hidden" name="question_set-INITIAL_FORMS" value="0" id="id_question_set-INITIAL_FORMS"><input type="hidden" name="question_set-MIN_NUM_FORMS" value="0" id="id_question_set-MIN_NUM_FORMS" autocomplete="off"><input type="hidden" name="question_set-MAX_NUM_FORMS" value="1000" id="id_question_set-MAX_NUM_FORMS" autocomplete="off">
+
+
+<div class="inline-related dynamic-question_set" id="question_set-0">
+  <h3><b>Question:</b> <span class="inline_label">#1</span>
+      
+    
+  <span><a class="inline-deletelink" href="http://127.0.0.1:8008/admin/mcq/assessment/add/#">Remove</a></span></h3>
+  
+  
+    <fieldset class="module aligned ">
+    
+    
+    
+        <div class="form-row field-question">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_question_set-0-question">Question:</label>
+                        
+                            <textarea name="question_set-0-question" cols="40" rows="10" class="vLargeTextField" id="id_question_set-0-question"></textarea>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-options">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_question_set-0-options">Options:</label>
+                        
+                            <textarea name="question_set-0-options" cols="40" rows="10" class="vLargeTextField" id="id_question_set-0-options"></textarea>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-correct_answer">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_question_set-0-correct_answer">Correct answer:</label>
+                        
+                            <input type="text" name="question_set-0-correct_answer" class="vTextField" maxlength="200" id="id_question_set-0-correct_answer">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-upload">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_question_set-0-upload">Image upload:</label>
+                        
+                            <input type="file" name="question_set-0-upload" accept="image/*" id="id_question_set-0-upload">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+  
+  <input type="hidden" name="question_set-0-id" id="id_question_set-0-id">
+  <input type="hidden" name="question_set-0-assessment" id="id_question_set-0-assessment">
+</div><div class="inline-related empty-form last-related" id="question_set-empty">
+  <h3><b>Question:</b> <span class="inline_label">#2</span>
+      
+    
+  </h3>
+  
+  
+    <fieldset class="module aligned ">
+    
+    
+    
+        <div class="form-row field-question">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_question_set-__prefix__-question">Question:</label>
+                        
+                            <textarea name="question_set-__prefix__-question" cols="40" rows="10" class="vLargeTextField" id="id_question_set-__prefix__-question"></textarea>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-options">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_question_set-__prefix__-options">Options:</label>
+                        
+                            <textarea name="question_set-__prefix__-options" cols="40" rows="10" class="vLargeTextField" id="id_question_set-__prefix__-options"></textarea>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-correct_answer">
+            
+            
+                <div>
+                    
+                    
+                        <label class="required" for="id_question_set-__prefix__-correct_answer">Correct answer:</label>
+                        
+                            <input type="text" name="question_set-__prefix__-correct_answer" class="vTextField" maxlength="200" id="id_question_set-__prefix__-correct_answer">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+        <div class="form-row field-upload">
+            
+            
+                <div>
+                    
+                    
+                        <label for="id_question_set-__prefix__-upload">Image upload:</label>
+                        
+                            <input type="file" name="question_set-__prefix__-upload" accept="image/*" id="id_question_set-__prefix__-upload">
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    
+</fieldset>
+
+  
+  <input type="hidden" name="question_set-__prefix__-id" id="id_question_set-__prefix__-id">
+  <input type="hidden" name="question_set-__prefix__-assessment" id="id_question_set-__prefix__-assessment">
+</div><div class="add-row"><a href="http://127.0.0.1:8008/admin/mcq/assessment/add/#">Add another Question</a></div>
+</fieldset>
+</div>
+
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+
+<input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue">
+
+
+</div>
+
+
+
+    <script id="django-admin-form-add-constants" src="./assessment _modify_files/change_form.js.download" data-model-name="assessment" async="">
+    </script>
+
+
+
+
+<script id="django-admin-prepopulated-fields-constants" src="./assessment _modify_files/prepopulate_init.js.download" data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</form></div>
+
+          
+          <br class="clear">
+        </div>
+        <!-- END Content -->
+        <div id="footer"></div>
+      </div>
+    </div>
+</div>
+<!-- END Container -->
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

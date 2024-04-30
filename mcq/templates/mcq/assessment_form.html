@@ -1,0 +1,17 @@
+{% extends 'mcq/home.html' %}
+% load bootstrap4 %}
+{% load bootstrap_tags %}
+
+
+{% block title_name %}
+      Create Assessment
+{% endblock title_name %}
+
+{% block main_content %}
+      <h1> Create New Assessment</h1>
+      <form action="{% url 'mcq:create' %}" method="POST">
+            {% csrf_token %}
+            {{ form|as_bootstrap }}
+            <input type="submit" value="Create" class="btn-create">
+      </form>
+{% endblock main_content %}

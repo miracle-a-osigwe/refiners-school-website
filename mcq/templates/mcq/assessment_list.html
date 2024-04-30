@@ -1,0 +1,44 @@
+{% extends 'mcq/home.html' %}
+
+{% block title_name %}
+      RHS - Assessments
+{% endblock title_name %}
+
+{% block main_content %}
+      <div class="container">
+            {% if user.is_authenticated %}
+            <div>
+                  {% if user.role_type == 2 or user.role_type == 3 %}
+                        <div>
+                              <a href="{% url 'mcq:create' %}" class="btn-create">
+                                    <legend class="create" aria-hidden="true">Create Assessment</legend>
+                              </a>
+                        </div>
+                        <div>
+                              <a href="{% url 'mcq:question' %}" class="btn-question">
+                                    <legend class="create-question" aria-hidden="true">Add Questions</legend>
+                        </div>
+                  {% endif %}
+                  <h1>Your Assessments</h1>
+                  {% for assessments in object_list %} 
+                        {% if assessments.author_id == user.id %}
+                  
+                              <div>
+                                    <a href="{% url 'mcq:assessment' pk=forloop.counter %}" class="btn-view">
+                                          <legend class="list" aria-hidden="true">{{ assessments }}</legend>
+                                    </a>
+                              </div>
+                        {% endif %}
+                  {% endfor %}
+                        
+                  
+            </div>
+            {% endif %}
+
+
+
+      </div>
+      {% block branding %}
+        
+      {% endblock branding %}
+{% endblock main_content %}

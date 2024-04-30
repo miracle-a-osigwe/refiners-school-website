@@ -1,0 +1,511 @@
+{% extends 'mcq/home.html' %}
+% load add %}
+{% load bootstrap_tags %}
+
+
+{% block title_name %}
+      Add Questions
+{% endblock title_name %}
+
+{% block main_content %}
+      <h1> Add Questions</h1>
+            <div>
+            
+            
+            
+            
+            
+            
+            
+                  <fieldset class="module aligned ">
+            
+            
+            
+                        <div class="form-row field-name">
+            
+            
+                              <div>
+            
+            
+                                    <label class="required" for="id_name">Academic Session:</label>
+            
+                                    <input type="text" name="name" value="2022/23 Session" class="vTextField" maxlength="30"
+                                          required="" id="id_name">
+            
+            
+            
+                              </div>
+            
+                        </div>
+            
+                        <div class="form-row field-title">
+            
+            
+                              <div>
+            
+            
+                                    <label class="required" for="id_title">Assessment type:</label>
+            
+                                    <input type="text" name="title" value="midterm" class="vTextField" maxlength="30" required=""
+                                          id="id_title">
+            
+            
+            
+                              </div>
+            
+                        </div>
+            
+                        <div class="form-row field-author">
+            
+            
+                              <div>
+            
+            
+                                    <label class="required" for="id_author">Author:</label>
+            
+                                    <div class="related-widget-wrapper" data-model-ref="teacher">
+                                          <select name="author" required="" id="id_author">
+                                                <option value="">---------</option>
+            
+                                                <option value="2" selected="">teach</option>
+            
+                                          </select>
+            
+                                          <a class="related-widget-wrapper-link change-related" id="change_id_author"
+                                                data-href-template="/admin/core/teacher/__fk__/change/?_to_field=id&amp;_popup=1"
+                                                data-popup="yes" title="Change selected teacher"
+                                                href="/admin/core/teacher/2/change/?_to_field=id&amp;_popup=1"><img
+                                                      src="/static/admin/img/icon-changelink.svg" alt="Change"></a><a
+                                                class="related-widget-wrapper-link add-related" id="add_id_author" data-popup="yes"
+                                                href="/admin/core/teacher/add/?_to_field=id&amp;_popup=1"
+                                                title="Add another teacher"><img src="/static/admin/img/icon-addlink.svg"
+                                                      alt="Add"></a><a class="related-widget-wrapper-link view-related"
+                                                id="view_id_author"
+                                                data-href-template="/admin/core/teacher/__fk__/change/?_to_field=id"
+                                                title="View selected teacher" href="/admin/core/teacher/2/change/?_to_field=id"><img
+                                                      src="/static/admin/img/icon-viewlink.svg" alt="View"></a>
+            
+                                    </div>
+            
+            
+            
+                              </div>
+            
+                        </div>
+            
+                        <div class="form-row field-subject">
+            
+            
+                              <div>
+            
+            
+                                    <label class="required" for="id_subject">Subject:</label>
+            
+                                    <div class="related-widget-wrapper" data-model-ref="subject">
+                                          <select name="subject" required="" id="id_subject">
+                                                <option value="">---------</option>
+            
+                                                <option value="1" selected="">English Language (Senior)</option>
+            
+                                                <option value="2">English Language (Senior)</option>
+            
+                                          </select>
+            
+                                          <a class="related-widget-wrapper-link change-related" id="change_id_subject"
+                                                data-href-template="/admin/core/subject/__fk__/change/?_to_field=id&amp;_popup=1"
+                                                data-popup="yes" title="Change selected subject"
+                                                href="/admin/core/subject/1/change/?_to_field=id&amp;_popup=1"><img
+                                                      src="/static/admin/img/icon-changelink.svg" alt="Change"></a><a
+                                                class="related-widget-wrapper-link add-related" id="add_id_subject" data-popup="yes"
+                                                href="/admin/core/subject/add/?_to_field=id&amp;_popup=1"
+                                                title="Add another subject"><img src="/static/admin/img/icon-addlink.svg"
+                                                      alt="Add"></a><a class="related-widget-wrapper-link view-related"
+                                                id="view_id_subject"
+                                                data-href-template="/admin/core/subject/__fk__/change/?_to_field=id"
+                                                title="View selected subject" href="/admin/core/subject/1/change/?_to_field=id"><img
+                                                      src="/static/admin/img/icon-viewlink.svg" alt="View"></a>
+            
+                                    </div>
+            
+            
+            
+                              </div>
+            
+                        </div>
+            
+                        <div class="form-row field-class_owner">
+            
+            
+                              <div>
+            
+            
+                                    <label class="required" for="id_class_owner">Class owner:</label>
+            
+                                    <div class="related-widget-wrapper" data-model-ref="class">
+                                          <select name="class_owner" required="" id="id_class_owner">
+                                                <option value="">---------</option>
+            
+                                                <option value="1" selected="">Year 7 Ruby</option>
+            
+                                          </select>
+            
+                                          <a class="related-widget-wrapper-link change-related" id="change_id_class_owner"
+                                                data-href-template="/admin/core/class/__fk__/change/?_to_field=id&amp;_popup=1"
+                                                data-popup="yes" title="Change selected class"
+                                                href="/admin/core/class/1/change/?_to_field=id&amp;_popup=1"><img
+                                                      src="/static/admin/img/icon-changelink.svg" alt="Change"></a><a
+                                                class="related-widget-wrapper-link add-related" id="add_id_class_owner"
+                                                data-popup="yes" href="/admin/core/class/add/?_to_field=id&amp;_popup=1"
+                                                title="Add another class"><img src="/static/admin/img/icon-addlink.svg"
+                                                      alt="Add"></a><a class="related-widget-wrapper-link view-related"
+                                                id="view_id_class_owner"
+                                                data-href-template="/admin/core/class/__fk__/change/?_to_field=id"
+                                                title="View selected class" href="/admin/core/class/1/change/?_to_field=id"><img
+                                                      src="/static/admin/img/icon-viewlink.svg" alt="View"></a>
+            
+                                    </div>
+            
+            
+            
+                              </div>
+            
+                        </div>
+            
+                  </fieldset>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                  <div class="js-inline-admin-formset inline-group" id="question_set-group" data-inline-type="stacked"
+                        data-inline-formset="{&quot;name&quot;: &quot;#question_set&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;question_set&quot;, &quot;addText&quot;: &quot;Add another Question&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+                        <fieldset class="module ">
+            
+                              <h2>Questions</h2>
+            
+                              <input type="hidden" name="question_set-TOTAL_FORMS" value="1" id="id_question_set-TOTAL_FORMS"
+                                    autocomplete="off"><input type="hidden" name="question_set-INITIAL_FORMS" value="0"
+                                    id="id_question_set-INITIAL_FORMS"><input type="hidden" name="question_set-MIN_NUM_FORMS"
+                                    value="0" id="id_question_set-MIN_NUM_FORMS" autocomplete="off"><input type="hidden"
+                                    name="question_set-MAX_NUM_FORMS" value="1000" id="id_question_set-MAX_NUM_FORMS"
+                                    autocomplete="off">
+            
+            
+                              <div class="inline-related dynamic-question_set" id="question_set-0">
+                                    <h3><b>Question:</b> <span class="inline_label">#1</span>
+            
+            
+                                          <span><a class="inline-deletelink" href="#">Remove</a></span>
+                                    </h3>
+            
+            
+                                    <fieldset class="module aligned ">
+            
+            
+            
+                                          <div class="form-row field-question">
+            
+            
+                                                <div>
+            
+            
+                                                      <label class="required" for="id_question_set-0-question">Question:</label>
+            
+                                                      <textarea name="question_set-0-question" cols="40" rows="10"
+                                                            class="vLargeTextField" id="id_question_set-0-question"></textarea>
+            
+            
+            
+                                                </div>
+            
+                                          </div>
+            
+                                          <div class="form-row field-options">
+            
+            
+                                                <div>
+            
+            
+                                                      <label class="required" for="id_question_set-0-options">Options:</label>
+            
+                                                      <textarea name="question_set-0-options" cols="40" rows="10"
+                                                            class="vLargeTextField" id="id_question_set-0-options"></textarea>
+            
+            
+            
+                                                </div>
+            
+                                          </div>
+            
+                                          <div class="form-row field-correct_answer">
+            
+            
+                                                <div>
+            
+            
+                                                      <label class="required" for="id_question_set-0-correct_answer">Correct
+                                                            answer:</label>
+            
+                                                      <input type="text" name="question_set-0-correct_answer" class="vTextField"
+                                                            maxlength="200" id="id_question_set-0-correct_answer">
+            
+            
+            
+                                                </div>
+            
+                                          </div>
+            
+                                          <div class="form-row field-upload">
+            
+            
+                                                <div>
+            
+            
+                                                      <label for="id_question_set-0-upload">Image upload:</label>
+            
+                                                      <input type="file" name="question_set-0-upload" accept="image/*"
+                                                            id="id_question_set-0-upload">
+            
+            
+            
+                                                </div>
+            
+                                          </div>
+            
+                                    </fieldset>
+            
+            
+                                    <input type="hidden" name="question_set-0-id" id="id_question_set-0-id">
+                                    <input type="hidden" name="question_set-0-assessment" value="4"
+                                          id="id_question_set-0-assessment">
+                              </div>
+                              <div class="inline-related empty-form last-related" id="question_set-empty">
+                                    <h3><b>Question:</b> <span class="inline_label">#2</span>
+            
+            
+                                    </h3>
+            
+            
+                                    <fieldset class="module aligned ">
+            
+            
+            
+                                          <div class="form-row field-question">
+            
+            
+                                                <div>
+            
+            
+                                                      <label class="required"
+                                                            for="id_question_set-__prefix__-question">Question:</label>
+            
+                                                      <textarea name="question_set-__prefix__-question" cols="40" rows="10"
+                                                            class="vLargeTextField"
+                                                            id="id_question_set-__prefix__-question"></textarea>
+            
+            
+            
+                                                </div>
+            
+                                          </div>
+            
+                                          <div class="form-row field-options">
+            
+            
+                                                <div>
+            
+            
+                                                      <label class="required"
+                                                            for="id_question_set-__prefix__-options">Options:</label>
+            
+                                                      <textarea name="question_set-__prefix__-options" cols="40" rows="10"
+                                                            class="vLargeTextField"
+                                                            id="id_question_set-__prefix__-options"></textarea>
+            
+            
+            
+                                                </div>
+            
+                                          </div>
+            
+                                          <div class="form-row field-correct_answer">
+            
+            
+                                                <div>
+            
+            
+                                                      <label class="required"
+                                                            for="id_question_set-__prefix__-correct_answer">Correct answer:</label>
+            
+                                                      <input type="text" name="question_set-__prefix__-correct_answer"
+                                                            class="vTextField" maxlength="200"
+                                                            id="id_question_set-__prefix__-correct_answer">
+            
+            
+            
+                                                </div>
+            
+                                          </div>
+            
+                                          <div class="form-row field-upload">
+            
+            
+                                                <div>
+            
+            
+                                                      <label for="id_question_set-__prefix__-upload">Image upload:</label>
+            
+                                                      <input type="file" name="question_set-__prefix__-upload" accept="image/*"
+                                                            id="id_question_set-__prefix__-upload">
+            
+            
+            
+                                                </div>
+            
+                                          </div>
+            
+                                    </fieldset>
+            
+            
+                                    <input type="hidden" name="question_set-__prefix__-id" id="id_question_set-__prefix__-id">
+                                    <input type="hidden" name="question_set-__prefix__-assessment" value="4"
+                                          id="id_question_set-__prefix__-assessment">
+                              </div>
+                              <div class="add-row"><a href="#">Add another Question</a></div>
+                        </fieldset>
+                  </div>
+            
+            
+            
+            
+            
+            
+            
+                  <div class="submit-row">
+            
+                        <input type="submit" value="Save" class="default" name="_save">
+            
+            
+                        <p class="deletelink-box"><a href="/admin/mcq/assessment/4/delete/" class="deletelink">Delete</a></p>
+            
+            
+                        <input type="submit" value="Save and add another" name="_addanother">
+                        <input type="submit" value="Save and continue editing" name="_continue">
+            
+            
+                  </div>
+            
+            
+            
+                  <script id="django-admin-form-add-constants" src="/static/admin/js/change_form.js" async="">
+                  </script>
+            
+            
+            
+            
+                  <script id="django-admin-prepopulated-fields-constants" src="/static/admin/js/prepopulate_init.js"
+                        data-prepopulated-fields="[]">
+                        </script>
+            
+            
+            </div>
+            <div class="js-inline-admin-formset inline-group" id="question_set-group" data-inline-type="stacked"
+                  data-inline-formset="{&quot;name&quot;: &quot;#question_set&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;question_set&quot;, &quot;addText&quot;: &quot;Add another Question&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+                  <fieldset class="module ">
+                        <h2>Questions</h2>
+                        <input type="hidden" name="question_set-TOTAL_FORMS" value="1" id="id_question_set-TOTAL_FORMS"
+                              autocomplete="off"><input type="hidden" name="question_set-INITIAL_FORMS" value="0"
+                              id="id_question_set-INITIAL_FORMS"><input type="hidden" name="question_set-MIN_NUM_FORMS" value="0"
+                              id="id_question_set-MIN_NUM_FORMS" autocomplete="off"><input type="hidden"
+                              name="question_set-MAX_NUM_FORMS" value="1000" id="id_question_set-MAX_NUM_FORMS" autocomplete="off">
+            
+                        <div class="inline-related dynamic-question_set" id="question_set-0">
+                              <h3><b>Question:</b> <span class="inline_label">#1</span>      
+                                    <span><a class="inline-deletelink" href="#">Remove</a></span>
+                              </h3>      
+                              <fieldset class="module aligned ">   
+                                    <div class="form-row field-question">
+                                          <div>
+                                                <label class="required" for="id_question_set-0-question">Question:</label>
+            
+                                                <textarea name="question_set-0-question" cols="40" rows="10" class="vLargeTextField"
+                                                      id="id_question_set-0-question"></textarea>      
+                                          </div>
+                                    </div>
+                                    <div class="form-row field-options">
+                                          <div>
+                                                <label class="required" for="id_question_set-0-options">Options:</label>
+                                                <textarea name="question_set-0-options" cols="40" rows="10" class="vLargeTextField"
+                                                      id="id_question_set-0-options"></textarea>      
+                                          </div>
+                                    </div>
+
+                                    <div class="form-row field-correct_answer">      
+                                          <div>
+                                                <label class="required" for="id_question_set-0-correct_answer">Correct
+                                                      answer:</label>
+                                                <input type="text" name="question_set-0-correct_answer" class="vTextField"
+                                                      maxlength="200" id="id_question_set-0-correct_answer">
+                                          </div>
+                                    </div>
+                                    <div class="form-row field-upload">
+                                          <div>
+                                                <label for="id_question_set-0-upload">Image upload:</label>
+                                                <input type="file" name="question_set-0-upload" accept="image/*"
+                                                      id="id_question_set-0-upload">
+                                          </div>
+            
+                                    </div>
+                              </fieldset>
+            
+                              <input type="hidden" name="question_set-0-id" id="id_question_set-0-id">
+                              <input type="hidden" name="question_set-0-assessment" value="4" id="id_question_set-0-assessment">
+                        </div>
+                        <div class="inline-related empty-form last-related" id="question_set-empty">
+                              <h3><b>Question:</b> <span class="inline_label">#2</span>
+                              </h3>
+                              <fieldset class="module aligned ">
+                                    <div class="form-row field-question">
+                                          <div>
+                                                <label class="required" for="id_question_set-__prefix__-question">Question:</label>
+                                                <textarea name="question_set-__prefix__-question" cols="40" rows="10"
+                                                      class="vLargeTextField" id="id_question_set-__prefix__-question"></textarea>
+                                          </div>
+                                    </div>
+                                    <div class="form-row field-options">
+                                          <div>
+                                                <label class="required" for="id_question_set-__prefix__-options">Options:</label>
+                                                <textarea name="question_set-__prefix__-options" cols="40" rows="10"
+                                                      class="vLargeTextField" id="id_question_set-__prefix__-options"></textarea>
+                                          </div>
+                                    </div>
+                                    <div class="form-row field-correct_answer">
+                                          <div>
+                                                <label class="required" for="id_question_set-__prefix__-correct_answer">Correct
+                                                      answer:</label>
+                                                <input type="text" name="question_set-__prefix__-correct_answer" class="vTextField"
+                                                      maxlength="200" id="id_question_set-__prefix__-correct_answer">
+                                          </div>
+                                    </div>
+                                    <div class="form-row field-upload">
+                                          <div>
+                                                <label for="id_question_set-__prefix__-upload">Image upload:</label>     
+                                                <input type="file" name="question_set-__prefix__-upload" accept="image/*"
+                                                      id="id_question_set-__prefix__-upload">
+                                          </div>
+                                    </div>
+                              </fieldset>
+                              <input type="hidden" name="question_set-__prefix__-id" id="id_question_set-__prefix__-id">
+                              <input type="hidden" name="question_set-__prefix__-assessment" value="4"
+                                    id="id_question_set-__prefix__-assessment">
+                        </div>
+                        <div class="add-row"><a href="#">Add another Question</a></div>
+                  </fieldset>
+            </div>
+      
+{% endblock main_content %}
+

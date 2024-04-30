@@ -1,0 +1,208 @@
+{% extends 'mcq/home.html' %}
+% load add %}
+{% load bootstrap_tags %}
+
+
+{% block title_name %}
+      Add Questions
+{% endblock title_name %}
+
+{% block main_content %}
+      <form enctype="multipart/form-data" class="container" method="post" id="question_form">
+            {% csrf_token %}
+            <!-- Main form -->
+            <div class="card">
+                  <div class="card-header card-header-secondary">
+                        <h4 class="card-title">Add Question</h4>
+                  </div>
+                  <!-- Question form -->
+                  {% for field in form %}
+                  <table>
+                        <tr>
+                              <div class="form-group card-body">
+                                    <td>
+                                    <label>{{ field.label }}</label>
+                                    {% if field.field.required %}
+                                          <span style="color : red;" class="required">*</span>
+                                    {% endif %}
+                                    
+                                    {{ field }}
+                                    {% if field.help_text %}
+                                          <small style="color : grey;">{{ field.help_text }}</small>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                          <p style="color : red;">{{ error }}</p>
+                                    {% endfor %}
+                                    </td>
+                              </div>
+                        </tr>
+                  </table>
+                  {% endfor %}
+            </div>
+            <!-- End of Question form -->
+
+            <!-- Options form -->
+            <!-- Using the named_formsets from the view function -->
+            {% with named_formsets.option as formset %}
+                  {{ formset.management_form }}
+                  <script type="text/html" id="option-template">
+                        <tr id="option-__prefix__" class= hide_all>
+                              {% for fields in formset.empty_form.hidden_fields %}
+                                    {{ fields }}
+                              {% endfor %}
+
+                              {% for fields in formset.empty_form.visible_fields %}
+                                    <td>{{ fields ]}</td>
+                              {% endfor %}
+                        </tr>
+                  </script>
+
+                  <div class="table-responsive card mt-4">
+                        <div class="card-header card-header-secondary">
+                              <h4 class="card-title">Add Options</h4>
+                        </div>
+                        <table class="table card-body" style="width: auto;">
+                              <thead class="text-secondary">
+                                    <th>
+                                          Option <span style="color : red;" class="required">*</span>
+                                    </th>
+                                    <th>
+                                          Delete
+                                    </th>
+                              </thead>
+                              <tbody id="tag-option">
+                                    <!-- form errors -->
+                                    {% for error in formset.non_form_errors %}
+                                          <span style="color : red;">{{ error }}</span>
+                                    {% endfor %}
+                                    {% for optionform in formset %}
+                                          {{ optionform.management_form }}
+                                          <tr id="option-{{ forloop.counter0 }}" class= hide_all>
+                                                {{ optionform.id }}
+                                                {% for field in optionform.visible_fields %}
+                                                      <td>
+                                                            {{ field }}
+                                                            {% for error in field.errors %}
+                                                                  <span style="color : red;">{{ error }}</span>
+                                                            {% endfor %}
+                                                      </td> 
+                                                {% endfor %}
+                                                <!-- Delete button -->
+                                                {% if optionform.instance.pk %}
+                                                      <td>
+                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{optionform.instance.pk}}">
+                                                                  Delete
+                                                            </button>
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal{{optionform.instance.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal{{optionform.instance.pk}}" aria-hidden="true">
+                                                                  <div class="modal-dialog" role="document">
+                                                                        <div class="modal-content">
+                                                                              <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="exampleModal{optionform.instance.pk}}">Are you sure you want to delete this</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                          <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                              </div>
+                                                                              <div class="modal-footer">
+                                                                                    <a href="{% url 'mcq:delete_option' optionform.instance.pk %}" type="button" class="btn btn-primary">Yes</a>
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                              </div>
+                                                                        </div>
+                                                                  </div>
+                                                            </div>
+                                                      </td>
+                                                {% endif %}
+                                          </tr>
+                                    {% endfor %}
+
+                              </tbody>
+                        </table>
+                  </div>
+            {% endwith %}
+
+            <!-- Answer formset -->
+            {% with named_formsets.answer as formset %}
+                  {{ formset.management_form }}
+                  <script type="text/html" id="answer-template">
+                        <tr id="answer-__prefix__" class= hide_all>
+                              {% for fields in formset.empty_form.hidden_fields %}
+                                    {{ fields }}
+                              {% endfor %}
+
+                              {% for fields in formset.empty_form.visible_fields %}
+                                    <td> {{ fields }} </td>
+                              {% endfor %}
+                        </tr>
+                  </script>
+                  <div class="table-responsive card mt-4">
+                        <div class="card-header card-header-secondary">
+                              <h4 class="card-title">Answer</h4>
+                        </div>
+                        <table class="table card-header">
+                              <thead class="text-secondary">
+                                    <th>Correct Answer <span style="color: red;" class="required">*</span></th>
+                                    <th>Delete</th>
+                              </thead>
+                              <tbody id="tag-answer">
+                                          
+                                    {% for error in formset.non_form_errors %}
+                                          <span style="color: red;"> {{ error }} </span>
+                                    {% endfor %}
+
+                                    {% for answerform in formset %}
+                                          {{ formset.management_form }}
+                                          <tr>
+                                                {% for field in answerform.visible_fields %}
+                                                <td>
+                                                      {{ field }}
+                                                      {% for error in field.errors %}
+                                                            <span style="color: red;"> {{ error }} </span>
+                                                      {% endfor %}
+
+                                                      {% comment %} {{ field.DELETE }} {% endcomment %}
+                                                </td>      
+                                                {% endfor %}
+                                                {% comment %} for delete {% endcomment %}
+                                                <!-- {% if answerform.instance.pk %}
+                                                      <td>
+                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{answerform.instance.pk}}">
+                                                                  
+                                                            </button>
+                                                      </td> 
+                                                      {% endif %}
+                                                -->
+                                                      
+                                          </tr>
+                                    {% endfor %}
+                              </tbody>
+                        </table>
+                       
+                  </div>
+            {% endwith %}
+            <div class="form-group">
+                  <button type="submit" class="btn btn-secondary btn-block">Save</button>
+            </div>
+            
+      </form>
+
+      <script>
+            $(document).ready(function() {
+                  // for addiing more options
+                  $('.addss-option').click(function(ev) {
+                        ev.preventDefault();
+                        var count = $('#tag-option').children().length;
+                        var tempMarkup = $('#option-template').html();
+                        var compiledTemp = tempMarkup.replace(/__prefix__/g, count);
+                        $('#item-option').append(compiledTemp); 
+
+                        //update form count
+                        $('#id_option-TOTAL_FORMS').attr('value', count+1);
+                  });
+            });
+            $(document).ready(function() {
+
+            })
+      </script>
+       
+{% endblock main_content %}
+

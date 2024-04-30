@@ -1,0 +1,32 @@
+{% extends 'mcq/home.html' %}
+
+{% block title_name %}
+      RHS - Questions
+{% endblock title_name %}
+
+
+{% block main_content %}
+      <div class="container-header">
+            <h1>{{ assessment }}</h1>
+      </div>
+      <div class="card">
+            <div class="card-header card-header-secondary">
+                  <h4 class="card-title">Questions</h4>
+                  <ol>
+                        {% for question in object_list %}
+                              
+                                    <li class="card-body"> {{ question }} | <a href="{% url 'mcq:question_update' question.id %}">Edit</a></li>
+                              
+                        {% endfor %}
+                  </ol>
+            </div>
+            <div class="card-header card-header-secondary">
+                  <a href="{% url 'mcq:question'  %}">
+                        <legend>Add Question</legend>
+                  </a>
+            </div>
+      </div>
+      {% block branding %}
+        
+      {% endblock branding %}
+{% endblock main_content %}
