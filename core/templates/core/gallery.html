@@ -1,6 +1,8 @@
 {% extends 'core/home.html' %}
 {% load static %}
 
+{% comment %} <script src="{% static "core/js/gallery.js" %}"></script> {% endcomment %}
+
 {% block title %}
     Gallery
 {% endblock title %}
@@ -21,55 +23,54 @@
 <div id="gallery-view">
     <div id="side-links">
         <button class="side-links-btn">Overview</button>
-        <button class="side-links-btn">Reception</button>
-        <button class="side-links-btn">Nursery/Primary School Building</button> 
-        <button class="side-links-btn">Secondary School Building</button>
-        <button class="side-links-btn">Classes Overview</button>
-        <button class="side-links-btn">Labs</button>
-        <button class="side-links-btn">Workshops</button>
-        <button class="side-links-btn">Sporting Facilities</button>
+        <button class="side-links-btn" onclick="changeImage('reception')">Reception</button>
+        <button class="side-links-btn" onclick="changeImage('primary')">Nursery/Primary School Building</button> 
+        <button class="side-links-btn" onclick="changeImage('secondary')">Secondary School Building</button>
+        <button class="side-links-btn" onclick="changeImage('classes')">Classes Overview</button>
+        <button class="side-links-btn" onclick="changeImage('labs')">Labs</button>
+        <button class="side-links-btn" onclick="changeImage('workshop')">Workshops</button>
+        <button class="side-links-btn" onclick="changeImage('sports')">Sporting Facilities</button>
     </div>
     <div id="gallery">
         <div class="gallery-slides">
-            <div class="gallery-content">
-                <div class="gallery-image">        
-                    <img src="{% static 'core/images/img/11.jpg' %}" alt="Image 2" class="img-gallery">
-                </div>
-                <div class="gallery-text">
-                    <p>This is the text for Image 1.</p>
-                </div>
-            </div>
-            <div class="gallery-content">
-                <div class="gallery-image">        
-                    <img src="{% static 'core/images/img/12.jpg' %}" alt="Image 2" class="img-gallery">
-                </div>
-                <div class="gallery-text">
-                    <p>This is the text for Image 2.</p>
-                </div>
-            </div>
-            <div class="gallery-content">
-                <div class="gallery-image">        
-                    <img src="{% static 'core/images/img/13.jpg' %}" alt="Image 2" class="img-gallery">
-                </div>
-                <div class="gallery-text">
-                    <p>This is the text for Image 3.</p>
-                </div>
-            </div>
-        </div>
-                <!-- <div class="gallery-swipe">
-                    <div class="gal-swipe">
-                        <img src="{% static 'core/images/img/11.jpg' %}" alt="Image 2" class="img-gallery">
+            {% if images %}
+            {% for image in images %}
+                {% if image.img_use == image_type %}
+                    <div class="gallery-content">
+                        <div class="gallery-image">        
+                            <img src=../{{ media_url }}/{{ image.img }} alt="Image" class="img-gallery">
+                        </div>
+                        <div class="gallery-text">
+                            <p>{{ image.img_tag }}</p>
+                        </div>
                     </div>
-                    <div class="gal-swipe">
-                        <img src="{% static 'core/images/img/12.jpg' %}" alt="Image 2" class="img-gallery">
-                    </div>
-                    <div class="gal-swipe">
-                        <img src="{% static 'core/images/img/13.jpg' %}" alt="Image 2" class="img-gallery">
-                    </div> 
-                </div> -->
-            
+                {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>            
     </div>
 </div>
 
+<script>
+    function changeImage(btnName) {
+        // var imgElement = document.getElementById('displayedImage');
+        console.log(btnName)
+        if (btnName === 'reception') {
+            image_type = 5;
+        } else if (btnName === 'labs') {
+            image_type = 4;
+        } else if (btnName === 'primary') {
+            image_type = 6;
+        } else if (btnName === 'secondary') {
+            image_type = 7;
+        } else if (btnName === 'classes') {
+            image_type = 8;
+        } else if (btnName === 'workshop') {
+            image_type = 9;
+        } else if (btnName === 'sports') {
+            image_type = 10;
+        }
+    }
+</script>
 
 {% endblock content %}

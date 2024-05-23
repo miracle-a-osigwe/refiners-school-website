@@ -11,20 +11,28 @@ User = get_user_model()
 
 class Section(models.Model):
     """The school sections"""
+    section_dict = {
+        1 : 'Pre-School', 
+        2 : 'Primary',
+        3 : 'Junior',
+        4 : 'Senior'
+        }
+    
     sec_class = [
-        (1, 'Junior'),
-        (2, 'Senior')
+        (1, 'Pre-School'),
+        (2, 'Primary'),
+        (3, 'Junior'),
+        (4, 'Senior')
     ]
     category = models.IntegerField(verbose_name='Category', choices=sec_class)
 
     def __str__(self):
-        result = "Junior" if self.category == 1 else "Senior"
-        return str(result)
+        # result = "Junior" if self.category == 1 else "Senior"
+        return str(self.section_dict.get(self.category, ' '))
 
 class Subject(models.Model):
     """A Subject model to store subjects."""
     #teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-
     category = models.ForeignKey(Section, verbose_name='Section', on_delete=models.CASCADE, related_name='section_subjects')
     name = models.CharField(verbose_name='Subject', max_length=30)
     
@@ -39,18 +47,30 @@ class Subject(models.Model):
             return row
             
     def __str__(self):
-        result = "Junior" if self.category == 1 else "Senior"
-        return  f"{str(self.name)} ({str(result)})"
+        # result = "Junior" if self.category == 1 else "Senior"
+        return  f"{str(self.name)} ({str(self.category)})"
     
     def junior_subjects():
-
         return Subject.objects.filter(Subject.category==1).all()
-    
+
+class Admin(models.Model):
+    """
+    Admin users, those who are neither students nor teachers but an admin of the school.
+    """
+    idx = models.OneToOneField(User, verbose_name='Registration number', on_delete=models.CASCADE, primary_key=True)
+    admin_roles = [
+        (1, 'Administratives'),
+        (2, 'Management staff'),
+        (3, 'Business owner')
+    ]
+    role = models.CharField(verbose_name='Admin role', choices=admin_roles, max_length=30)
+
+    def __str__(self):
+        return self.role
 
 class Teacher(models.Model):
 
     """A Teacher model to reference from the User model."""
-
     
     # with connection.cursor() as cursor:
     #     cursor.execute

@@ -1020,4 +1020,14 @@ input[type="submit"], button {
         font-size: 0.8125rem;
         word-break: break-word;
     }
+
+    .offer-item {
+        flex: 1 0 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .offer-item {
+        flex: 1 0 100%;
+    }
 }

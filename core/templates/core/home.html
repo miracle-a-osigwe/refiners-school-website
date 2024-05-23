@@ -1,7 +1,7 @@
 {% extends "main_base.html" %}
 {% load i18n static %}
 {% block title %}
-    Homepage
+    Welcome to Refiners Schools Website.
 {% endblock title %}
 
 {% block header %}
@@ -43,79 +43,106 @@
 {% endblock usertools %}
 {% block messages %}{% endblock messages %}
 
+{% if homepage_images %}
+    {% block visual %}
+        {% comment %} {% block message %}
+            {% if message %}
+                <h2 id="message-id">
+                    {{ message }}
+                </h2>
+            {% endif %}
+        {% endblock message %} {% endcomment %}
+        <div id="gallery-container">
+            <div class="content-slider">
+                {% for image_pair in homepage_images %}
+                    {% comment %} {% if "media/" in image.img %}{{ image.img.replace("media/", "") }} {% endif %} {% endcomment %}
+                    {% for image in image_pair %}
+                        {% if image %}
+                            <div class="content2">
+                                <div class="image-section">
+                                    <img src={{ media_url }}/{{ image.img }} alt={{ image.img_tag }} class="img-class">
+                                    {% comment %} <img src="{% static 'core/images/kids.jpg' %}" alt="Image 1" class="img-class"> {% endcomment %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    
+                {% endfor %}
+            </div>
+            {% comment %} left (&#9664;), right (&#9654;) {% endcomment %}
+            <button class="nav-button-direction" id="prev-button">^</button> <!-- Left arrow -->
+            <button class="nav-button-direction" id="next-button">^</button> <!-- Right arrow -->
+        </div>
+        {{ block.super }}
+        </br>
+    {% endblock visual %}
+{% endif %}
 
+{% block sidebar %}
+    <div class="home-sidebar">
+
+    </div>
+{% endblock sidebar %}
 
 {% block content %}
-{% block message %}
-    {% if message %}
-        <h2 id="message-id">
-            {{ message }}
-        </h2>
-        
-    {% endif %}
-{% endblock message %}
-    <div id="gallery-container">
-        <div class="content-slider">
-            <div class="content2">
-                <div class="image-section">
-                    <img src="{% static 'core/images/kids.jpg' %}" alt="Image 1" class="img-class">
-                </div>
-                <div class="text-section">
-                    <h2>Refiners Schools</h2>
-                    <p>
-                        At Refiners School your child is our priority. Hence, we ensure the all-round development of your child in an enabling 
-                        environment for learning, where they are guided and motivated to achieve their dreams. We are dedicated to raising a 
-                        generation of leaders in the society with impeccable academic and moral standards. 
-                        We are raising a generation of children who can adapt to the challenges of the diverse and global society. 
-                    </p>
+    <div class='post'>
+        {% if about_us %}
+            <div class='section-header'>
+                <h2>ABOUT US</h2>
+            </div>
+            <div>
+                <h3>{{ about_us.title }}</h3>
+                <span>
+                    {{ about_us.content }}
+                </span>
+                {% if about_us.img %}
                     <span>
-                        <i aria-hidden="true" class="fas fa-minus"></i>
-                        <a href="{% url 'core:about' %}" id="read-more"> READ MORE</a>
+                        <img src=../{{ media_url }}/{{ about_us.img }} alt="Image" class="image">
                     </span>
-                </div>
+                {% endif %}
             </div>
-            <div class="content2">
-                <div class="image-section">
-                    <img src="{% static 'core/images/img/1.jpg' %}" alt="Image 2" class="img-class">
-                </div>
-                <div class="text-section">
-                    <h3>School Vision</h3>
-                    <p id="vision-mission">
-                        Our vision is to perfect the will of God in young stars by refining, nurturing, 
-                        and moulding them for eminence and excellence in purity with the fear of God, as well as offering a robust, 
-                        and moral education acceptable nationally and globally to the benefit of the society and mankind.
-                    </p>
-                    <h3>School Mission</h3>
-                    <p id="vision-mission">
-                        Our Mission is to nurture and foster with high moral values, discipline, 
-                        and sound mind for learning in a conducive and enabling environment through creative and challenging learning experiences.
-                    </p>
-                    <span>
-                        <i aria-hidden="true" class="fas fa-minus"></i>
-                        <a href="{% url 'core:mission_vision' %}" id="read-more"> READ MORE</a>
-                    </span>
-                </div>
+            <div>
+                <a href="{% url 'core:about' %}" id="read-more">READ MORE</a>
             </div>
-            <!-- Add more content sections as needed -->
-            <div class="content2">
-                <div class="image-section">
-                    <img src="{% static 'core/images/img/3.jpg' %}" alt="Image 3" class="img-class">
-                </div>
-                <div class="text-section">
-                    <p>This is the text for Image 3.</p>
-                </div>
-            </div>
-            <div class="content2">
-                <div class="image-section">
-                    <img src="{% static 'core/images/img/2.jpg' %}" alt="Image 4" class="img-class">
-                </div>
-                <div class="text-section">
-                    <p>This is the text for Image 4.</p>
-                </div>
-            </div>
-            <!-- </div> -->
-        
+        {% endif %}
+    </div>
+
+    <div class='offer-container'>
+        {% if offer %}
+        <div class='section-header'>
+            <h2>WHAT WE OFFER</h2>
         </div>
-      </div>
-      {{ block.super }}
+        <div class='offer'>
+            {% for item in offer %}
+                <div class='offer-items'>
+                    <h2 class='offer-tag'> {{ item.title.upper }} </h2>
+                    <span>
+                        {{ item.content }}
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <a href="{% url 'core:academics' %}" id="read-more">READ MORE</a>
+        </div>
+        {% endif %}
+    </div>
+    <div class='events'>
+        {% if events %}
+            <div class='section-header'>
+                <h2>UPCOMING EVENTS</h2>
+            </div>
+            {% for event in events %}
+                <div class='event'>
+                    <h3> {{ event.title }} </h3>
+                    {% if event.img %}
+                        <img src=../{{ media_url }}/{{ event.img }} alt={{ event.tag }} class="image">
+                    {% endif %}
+                    <div>
+                        {{ event.content }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock content %}

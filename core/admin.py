@@ -29,14 +29,16 @@ class StudentAdmin(admin.ModelAdmin):
 class TeacherAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {
-            'fields': ['id', 'category', 'subjects']
+            # 'fields': ['id', 'category', 'subjects']
+            'fields': ['idx', 'subjects']
         })
     ]
 
     add_fieldsets = [
         (
             {
-                'fields': ['id', 'category', 'subjects']
+                # 'fields': ['id', 'category', 'subjects']
+                'fields': ['idx', 'subjects']
             }
         )
     ]
@@ -51,6 +53,18 @@ class ClassAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Section)
+class SectionAdmin(admin.ModelAdmin):
+    model = Section
+    extra = 0
+
+    list_display = ['id', 'category']
+    list_filter = ['id']
+
+    fieldsets = [
+        (None, {
+            'fields': ['id', 'category']
+        })
+    ]
 # @admin.register(Result)
 class ResultAdmin(admin.ModelAdmin):
     pass

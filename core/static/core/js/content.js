@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
         const len = document.querySelectorAll(".gallery-content").length
         let est = 1/len
-        console.log(est, len)
         let currentIdx = 0;
         let count = 0
         

@@ -36,7 +36,9 @@
         <div id="header">
             <div id="branding">
                 {% block branding %}
-                    <img src="{% static 'core/images/logo-1.png' %}" alt="logo">
+                    <div class="js-tilt">
+                        <img src="{% static 'core/images/logo-1.png' %}" alt="Refiners schools logo">
+                    </div>
                 {% endblock %}
             </div>
             <div class="logo">
@@ -120,12 +122,7 @@
                                 <a href="{% url 'core:academics' %}">Academics</a>
                             </div>
                         {% endblock academic_tag %}
-                        {% block facility_tag %}
-                            <div class="facility_tag">
-                                <a href="{% url 'core:facilities' %}">Facilities</a>
-                            </div>
-                        {% endblock facility_tag %}
-
+                        
                         {% block login %}
                             <div id="login_dir" class="breadcrumbs">
                                 <a href="{% url 'accounts:login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
@@ -154,6 +151,10 @@
         
         {% endif %}
 
+        <!-- VISUAL SECTION FOR THE IMAGES OR VIDEOS -->
+        {% block visual %}
+        {% endblock visual %}
+
         <div class="main" id="main">
           {% if not is_popup and is_nav_sidebar_enabled %}
             {% block nav-sidebar %}
@@ -169,6 +170,11 @@
               {% endif %}
             {% endblock messages %}
             <!-- Content -->
+            {% block right_content %}
+                <div class="right-content"> 
+
+                </div>
+            {% endblock right_content %}
             <div id="content" class="{% block coltype %}colM{% endblock %}">
               {% block pretitle %}{% endblock %}
               {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
@@ -185,7 +191,7 @@
         </div>
         <div id="footer">
             {% block footer %}
-                <!-- <script src="{% static "core/js/core.js" %}" defer></script> -->
+                {% comment %} <script src="{% static "core/js/core.js" %}" defer></script> {% endcomment %}
                 <!-- <div class="other-details">
     
                 </div> -->
@@ -205,11 +211,23 @@
                             <a href="{% url 'core:resources' %}">Resources</a>
                         </div>
                     {% endblock resources_tag %}
+                    {% block facility_tag %}
+                        <div class="facility_tag">
+                            <a href="{% url 'core:facilities' %}">Facilities</a>
+                        </div>
+                    {% endblock facility_tag %}
                 </div>
             {% endblock footer %}
         </div>
     </div>
     <!-- END Container -->
-    
+<!--===============================================================================================-->
+<script src="{% static "accounts/vendor/tilt/tilt.jquery.min.js" %}"></script>
+<script >
+    $('.js-tilt').tilt({
+        scale: 1.1
+    })
+</script>
+<!--===============================================================================================-->
 </body>
 </html>

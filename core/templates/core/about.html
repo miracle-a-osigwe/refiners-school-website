@@ -10,25 +10,48 @@
 {% endblock aboutus_tag %}
 
 {% block content %}
-    <div class="about">
-        <h2>About Refiners Schools</h2>
-
-        <span>
-            <p>
-                The name <strong>REFINERS</strong> was couched from Malachi 3:3. 
-                Established in 2012, on a strong Christian foundation, 
-                we inculcate sound Christian values of Faith, Love, 
-                Compassion and Respect. However, we embrace diversity in religion and 
-                culture, therefore children from different religious and cultural backgrounds are welcomed, respected, and supported. 
-            
-            <br/>
-
-                At REFINERS, we believe every child is different and we are all unique in our ways and approach. 
-                Hence, we adopt a Child-centred” process in our academic, emotional and physical engagement. 
-                As our motto states “Perfecting God's Will”, we ensure every child is particularly '<strong>refined</strong>' that he or 
-                    she should become perfectly and thoroughly furnished, prepared for every <strong>good work</strong> in the immediate 
-                    community locally and globally.
-            </p>
-        </span>
-    </div>
+    {% if about_us_data %}
+        <div class="about">
+            <h2>ABOUT REFINERS SCHOOLS</h2>
+        </div>
+        <div> 
+            {{ about_us_data.content | safe }}    
+        </div>
+    {% endif %}
+    </br>
+    {% if mission %}
+        <div class="about-grid">
+            <h2>MISSION</h2>
+        </div>
+        <div class="about-grid-content">
+            {{ mission.content }}
+        </div>
+    {% endif %}
+    </br>
+    {% if vision %}
+        <div  class="about-grid">
+            <h2>VISION</h2>
+        </div>
+        <div class="about-grid-content">
+            {{ vision.content }}
+        </div>
+    {% endif %}
+    </br>
+    {% if core_values %}
+        <div  class="about-grid">
+            <h2>CORE VALUES</h2>
+        </div>
+        <div class="about-grid-content">
+            {{ core_values.content | safe }}
+        </div>
+    {% endif %}
+    </br>
+    {% if school_anthem %}
+        <div>
+            <h2>SCHOOL ANTHEM</h2>
+        </div>
+        <div>
+            {{ school_anthem.content | safe }}
+        </div>
+    {% endif %}
 {% endblock %}
